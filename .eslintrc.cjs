@@ -41,6 +41,7 @@ module.exports = {
         'no-unused-vars': 'off',
         indent: [2, 4],
         '@stylistic/js/semi': 1,
+        'n/prefer-global/process': 'off',
         'consistent-return': 'off',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',

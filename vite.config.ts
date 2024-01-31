@@ -7,4 +7,7 @@ export default defineConfig({
     resolve: {
         alias: [{ find: '@', replacement: '/src' }]
     },
+    define: {
+        'import.meta.env.ENV_VARIABLE': JSON.stringify(process.env.ENV_VARIABLE)
+    }
 });
