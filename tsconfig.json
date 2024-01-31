@@ -9,7 +9,6 @@
     "skipLibCheck": true,
     "allowJs": true,
 
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
@@ -17,26 +16,22 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    /* Custom */
     "baseUrl": ".",
     "paths": {
         "@/*": ["./src/*"]
     },
-    // esModuleInterop для использования import вместо common js
     "esModuleInterop": true,
-    // allowSyntheticDefaultImports для использования import <package> вместо import * as <package>
     "allowSyntheticDefaultImports": true,
     "plugins": [
         {
             "name": "typescript-plugin-css-modules"
         }
-    ],
+    ]
   },
   "ts-node": {
     "compilerOptions": {

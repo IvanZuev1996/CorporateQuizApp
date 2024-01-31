@@ -1,0 +1,48 @@
+{
+  "quiz": [
+    { 
+      "id": "1", 
+      "title": "Some title", 
+      "description": "Some description",
+      "questions": 
+      [
+        {
+          "id": "1", 
+          "title": "Some question 1",
+          "answers": ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+          "correctAnswer": {
+            "index": 1,
+            "answerText": "Answer 2"
+          }
+        },
+        {
+          "id": "2", 
+          "title": "Some question 2",
+          "answers": ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+          "correctAnswer": {
+            "index": 3,
+            "answerText": "Answer 4"
+          }
+        },
+        {
+          "id": "3",
+          "title": "Some question 3",
+          "answers": ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+          "correctAnswer": {
+            "index": 0,
+            "answerText": "Answer 1"
+          }
+        },
+        {
+          "id": "4",
+          "title": "Some question 4",
+          "answers": ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+          "correctAnswer": {
+            "index": 2,
+            "answerText": "Answer 3"
+          }
+        }
+      ]
+    }
+  ]
+}

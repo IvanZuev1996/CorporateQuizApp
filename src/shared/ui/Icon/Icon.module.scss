@@ -1,0 +1,28 @@
+.Icon {
+    padding: 7px;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: all 0.1s ease-in-out;
+}
+
+.background {
+    background-color: rgb(255 255 255);
+    transition: all 0.1s ease-in-out;
+}
+
+.hovered {
+    transition: all 0.1s ease-in-out;
+}
+
+.hovered:hover {
+    background-color: var(--additive-background-color);
+}
+
+.cliked {
+    cursor: pointer;
+}
+
+.active {
+    fill: var(--main-blue-color);
+    color: var(--main-blue-color);
+}

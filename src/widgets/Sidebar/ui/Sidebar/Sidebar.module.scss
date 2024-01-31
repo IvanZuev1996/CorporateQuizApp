@@ -1,0 +1,9 @@
+.Sidebar {
+    height: calc(100vh - var(--header-height));
+    padding: var(--padding-size-8);
+    background: var(--main-color);
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: auto;
+}

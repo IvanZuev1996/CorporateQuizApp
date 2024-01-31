@@ -4,7 +4,7 @@ module.exports = {
         es2021: true,
         jest: true
     },
-    extends: ['plugin:react/recommended', 'airbnb', 'stylelint', 'prettier'],
+    extends: ['plugin:react/recommended', 'plugin:json/recommended', 'airbnb', 'stylelint', 'prettier'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -20,7 +20,7 @@ module.exports = {
         'unused-imports',
         'import',
         'babun4ek-fsd-plugin',
-        '@stylistic/js'
+        '@stylistic/js',
     ],
     ignorePatterns: ['**/*.scss', '**/*.css'],
     rules: {
@@ -30,6 +30,9 @@ module.exports = {
                 extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
             }
         ],
+        'no-console': 'warn',
+        'n/no-missing-require': 'off',
+        'sort-imports': 'off',
         'n/no-missing-import': 'off',
         'react/jsx-indent': [2, 4],
         'import/no-unresolved': 'off',
@@ -104,5 +107,5 @@ module.exports = {
     globals: {
         __IS_DEV__: true,
         __API__: true
-    }
+    },
 };

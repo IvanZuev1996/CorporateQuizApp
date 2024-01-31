@@ -1,0 +1,15 @@
+.Wrap {
+    padding: 1px 10px;
+    border-radius: 15px;
+    transition: all 0.1s ease-in;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.Wrap:hover {
+    background: var(--additive-background-color);
+}
+
+.active {
+    background-color: var(--additive-blue-color);
+}

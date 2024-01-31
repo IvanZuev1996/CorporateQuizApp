@@ -1,6 +1,6 @@
 :root {
     --font-family-main: 'Montserrat', sans-serif;
-    --font-size-s: 12px;
+    --font-size-s: 13px;
     --font-line-s: 18px;
     --font-s: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
     --font-size-m: 16px;
@@ -15,22 +15,34 @@
 
     // Размеры
 
-    --navbar-height: 56px;
-    --sidebar-width: 240px;
-    --sidebar-width-collapsed: 80px;
-    --comment-avatar-width: 40px;
-
-    // z - Идексы
-
-    --modal-z-index: 10;
+    --header-height: 64px;
+    --sidebar-width: 200px;
 
     // Цвета
 
-    --overlay-color: rgb(0 0 0 / 60%);
-    --red-light: rgb(255 0 0);
-    --red-dark: rgb(217 0 0);
-    --red-simple: rgb(235 127 127);
+    --main-color: #fff;
+    --background-color: #f7f9fc;
+    --additive-background-color: rgb(0 0 0 / 5%);
+    --main-blue-color: #3f57ff;
+    --additive-blue-color: #e8ebff;
+    --header-color: var(--main-color);
+    --sidebar-color: var(--main-color);
 
-    // Параметры
-    --border-size: 8px;
+    // z - Идексы
+
+    --header-z-index: 100;
+
+    // Отступы
+
+    --padding-size-4: 4px; 
+    --padding-size-8: 8px; 
+    --padding-size-16: 16px; 
+    --padding-size-24: 24px; 
+    --margin-size-4: 4px; 
+    --margin-size-8: 8px; 
+    --margin-size-16: 16px; 
+    --margin-size-24: 24px; 
+    --margin-size-32: 32px; 
+    --margin-size-40: 40px; 
+    --margin-size-48: 48px; 
 }
