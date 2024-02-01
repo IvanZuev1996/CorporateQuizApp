@@ -6,11 +6,13 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
+import { QuizDetailsSchema } from '@/entities/Quiz';
 import { rtkApi } from '@/shared/api/rtkApi';
-import { CounterSchema } from '@/widgets/Counter';
+import { CounterSchema } from '@/widgets/CounterComponent';
 
 export interface StateSchema {
     counter: CounterSchema;
+    quizDetails: QuizDetailsSchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // асинхронные редюсеры

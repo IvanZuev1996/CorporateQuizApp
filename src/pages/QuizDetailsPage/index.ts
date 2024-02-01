@@ -1,0 +1,1 @@
+export { QuizDetailsPageAsync as QuizDetailsPage } from './ui/QuizDetailsPage.async';

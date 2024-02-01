@@ -1,6 +1,6 @@
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
-import { QuizPage } from '@/pages/QuizPage';
+import { QuizDetailsPage} from '@/pages/QuizDetailsPage';
 import {
     AppRoutes,
     getRouteQuiz,
@@ -17,7 +17,7 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     },
     [AppRoutes.QUIZ]: {
         path: getRouteQuiz(':id'),
-        element: <QuizPage />
+        element: <QuizDetailsPage />
     },
     [AppRoutes.FORBIDDEN]: {
         path: getRouteForbidden(),

@@ -5,7 +5,7 @@ const MainPage = () => {
 
     return (
         <PageLayout>
-            <h1>This is MainPage</h1>
+            <p>This is MainPage</p>
         </PageLayout>
     );};
 
