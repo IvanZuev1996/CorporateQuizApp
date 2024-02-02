@@ -1,0 +1,19 @@
+.answer {
+    width: 100%;
+    padding: var(--padding-size-16);
+    background: var(--main-color);
+    border: 1px solid lightgray;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.answer:not(.active):hover {
+    background: var(--additive-blue-color);
+}
+
+.active {
+    color: var(--main-color);
+    background: var(--main-blue-color);
+    outline: 3px solid var(--additive-blue-color);
+}

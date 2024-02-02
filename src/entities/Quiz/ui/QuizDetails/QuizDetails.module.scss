@@ -1,0 +1,13 @@
+.wrapper {
+    height: 100%;
+    flex: 3;
+}
+
+.navigationBar {
+    flex: 1;
+    max-width: var(--quiz-navigation-bar-width);
+}
+
+.content {
+    flex: 2;
+}

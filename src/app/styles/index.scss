@@ -13,9 +13,10 @@ body {
 }
 
 .page-content {
-    margin-left: calc(var(--sidebar-width) + var(--margin-size-32));
-    margin-right: var(--margin-size-32);
     margin-top: calc(var(--header-height) + var(--margin-size-32));
+    margin-left: calc(var(--sidebar-width) + var(--margin-size-32));
+    padding-bottom: var(--padding-size-32);
+    padding-right: var(--padding-size-32);
     border-radius: 15px;
     height: calc(100vh - var(--header-height) - var(--margin-size-32));
     width: calc(100vw - var(--sidebar-width) - var(--margin-size-32));

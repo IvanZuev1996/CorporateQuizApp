@@ -8,7 +8,6 @@ const QuizDetailsPage = () => {
 
     return (
         <PageLayout>
-            <h1>This is QuizPage</h1>
             <QuizDetails id={id}/>
         </PageLayout>
     );
