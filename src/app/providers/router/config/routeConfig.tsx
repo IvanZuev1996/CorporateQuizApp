@@ -1,12 +1,14 @@
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { QuizDetailsPage} from '@/pages/QuizDetailsPage';
+import { QuizzesPage } from '@/pages/QuizzesPage';
 import {
     AppRoutes,
-    getRouteQuiz,
+    getRouteQuizDetails,
     getRouteForbidden,
     getRouteMain,
     getRouteNotFound,
+    getRouteQuizzes,
 } from '@/shared/const/router';
 import { AppRouteProps } from '@/shared/types/router';
 
@@ -15,8 +17,12 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
         path: getRouteMain(),
         element: <MainPage />
     },
-    [AppRoutes.QUIZ]: {
-        path: getRouteQuiz(':id'),
+    [AppRoutes.QUIZZES]: {
+        path: getRouteQuizzes(),
+        element: <QuizzesPage />
+    },
+    [AppRoutes.QUIZ_DETAILS]: {
+        path: getRouteQuizDetails(':id'),
         element: <QuizDetailsPage />
     },
     [AppRoutes.FORBIDDEN]: {

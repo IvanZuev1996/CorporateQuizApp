@@ -10,15 +10,13 @@ import { StoreProvider } from './app/providers/StoreProvider';
 import './app/styles/index.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <StoreProvider>
-                <AntdProvider>
-                    <ErrorBoundary>
-                        <App />
-                    </ErrorBoundary>
-                </AntdProvider>
-            </StoreProvider>
-        </BrowserRouter>
-    </React.StrictMode>,
+    <BrowserRouter>
+        <StoreProvider>
+            <AntdProvider>
+                <ErrorBoundary>
+                    <App />
+                </ErrorBoundary>
+            </AntdProvider>
+        </StoreProvider>
+    </BrowserRouter>
 );

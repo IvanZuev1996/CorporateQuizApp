@@ -1,6 +1,6 @@
 :root {
     --font-family-main: 'Montserrat', sans-serif;
-    --font-size-s: 13px;
+    --font-size-s: 14px;
     --font-line-s: 18px;
     --font-s: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
     --font-size-m: 16px;
@@ -17,6 +17,8 @@
 
     --header-height: 64px;
     --sidebar-width: 200px;
+    --quiz-item-width: 250px;
+    --quiz-item-height: 300px;
 
     // Цвета
 
@@ -27,6 +29,10 @@
     --additive-blue-color: #e8ebff;
     --header-color: var(--main-color);
     --sidebar-color: var(--main-color);
+
+    // skeleton
+    --skeleton-color: #fff;
+    --skeleton-bg-color: #e3e3e3;
 
     // z - Идексы
 

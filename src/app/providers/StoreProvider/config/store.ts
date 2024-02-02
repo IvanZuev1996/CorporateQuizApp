@@ -5,6 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 
 import { quizDetaisReducer } from '@/entities/Quiz';
+import { quizzesPageReducer } from '@/pages/QuizzesPage';
 import { $api } from '@/shared/api/api';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { counterReducer } from '@/widgets/CounterComponent';
@@ -20,6 +21,7 @@ export function createReduxStore(
     const rootReducer: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         quizDetails: quizDetaisReducer,
+        quizzesPage: quizzesPageReducer,
         [rtkApi.reducerPath]: rtkApi.reducer,
         ...asyncReducers
     };

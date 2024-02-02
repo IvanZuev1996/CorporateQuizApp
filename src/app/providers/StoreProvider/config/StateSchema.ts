@@ -7,12 +7,14 @@ import {
 import { AxiosInstance } from 'axios';
 
 import { QuizDetailsSchema } from '@/entities/Quiz';
+import { QuizzesPageSchema } from '@/pages/QuizzesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { CounterSchema } from '@/widgets/CounterComponent';
 
 export interface StateSchema {
     counter: CounterSchema;
     quizDetails: QuizDetailsSchema;
+    quizzesPage: QuizzesPageSchema
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // асинхронные редюсеры

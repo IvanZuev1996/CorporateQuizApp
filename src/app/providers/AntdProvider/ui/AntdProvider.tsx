@@ -9,7 +9,7 @@ export const AntdProvider = ({children}: AntdProviderProps) => (
     <ConfigProvider
         theme={{
             token: {
-                fontSize: 18,
+                fontSize: 14,
                 fontFamily: '\'Montserrat\', sans-serif'
             },
             components: {

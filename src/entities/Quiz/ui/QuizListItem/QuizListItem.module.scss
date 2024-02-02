@@ -1,0 +1,36 @@
+.Item {
+    width: var(--quiz-item-width);
+    height: var(--quiz-item-height);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0%);
+    transition: transform 0.1s ease-in, box-shadow 0.25s ease-in;
+}
+
+.Item:hover {
+    // scale: 1.05;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%);
+}
+
+.itemContent {
+    height: 100%;
+}
+
+.imageWrap {
+    height: 60%;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.info {
+    margin-top: var(--margin-size-8);
+    margin-bottom: var(--margin-size-8);
+}
+
+.btn {
+    width: 100%;
+}
