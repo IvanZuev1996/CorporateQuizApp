@@ -1,0 +1,22 @@
+.Item {
+    background: var(--light-blue-color);
+    height: 50px;
+    max-height: 50px;
+    padding: var(--padding-size-8) var(--padding-size-24);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+}
+
+.Item:not(.active):hover {
+    background: var(--additive-blue-color);
+}
+
+.completed {
+    background: var(--additive-blue-color);
+}
+
+.active {
+    color: var(--main-color);
+    background: var(--main-blue-color);
+}

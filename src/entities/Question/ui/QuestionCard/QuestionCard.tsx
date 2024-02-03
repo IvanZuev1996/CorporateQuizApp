@@ -3,17 +3,18 @@ import { useCallback, useState } from 'react';
 
 import { HStack, VStack } from '@/shared/ui/Stack';
 
-import { Question } from '../../model/types/question';
+import { Answer, Question } from '../../model/types/question';
 import { QuestionAnswer } from '../QuestionAnswer/QuestionAnswer';
 
 import cls from './QuestionCard.module.scss';
 
 interface QuestionCardProps {
     question?: Question;
-    onSendAnswer?: () => void;
+    isLastQuestion?: boolean;
+    onSendAnswer?: (selectedAnswer: Answer) => void;
 }
 
-export const QuestionCard = ({ question, onSendAnswer }: QuestionCardProps) => {
+export const QuestionCard = ({ question, onSendAnswer, isLastQuestion }: QuestionCardProps) => {
     const answers = question?.answers;
 
     const firstPart = answers?.slice(0, 2);
@@ -27,8 +28,14 @@ export const QuestionCard = ({ question, onSendAnswer }: QuestionCardProps) => {
 
     const onSendAnswerHandler = useCallback(() => {
         setSelectedAnswerId(null);
-        onSendAnswer?.();
-    }, [onSendAnswer]);
+        const selectedAnswer = answers?.find(answer => answer.id === `${selectedAnswerId}`);
+
+        if (!selectedAnswer) {
+            return;
+        }
+
+        onSendAnswer?.(selectedAnswer);
+    }, [answers, onSendAnswer, selectedAnswerId]);
 
     if (!answers || !firstPart || !secondPart) {
         return <div>No Data!</div>;
@@ -46,6 +53,7 @@ export const QuestionCard = ({ question, onSendAnswer }: QuestionCardProps) => {
                             text={answer.text}
                             onSelectedAnswer={onSelectedAnswer}
                             selectedAnswerId={selectedAnswerId}
+                            key={answer.id}
                         />
                     ))}
                 </HStack>
@@ -56,6 +64,7 @@ export const QuestionCard = ({ question, onSendAnswer }: QuestionCardProps) => {
                             text={answer.text}
                             onSelectedAnswer={onSelectedAnswer}
                             selectedAnswerId={selectedAnswerId}
+                            key={answer.id}
                         />
                     ))}
                 </HStack>
@@ -65,7 +74,9 @@ export const QuestionCard = ({ question, onSendAnswer }: QuestionCardProps) => {
                     onClick={onSendAnswerHandler}
                     className={cls.nextBtn}
                 >
-                    Ответить
+                    {
+                        isLastQuestion ? 'Завершить тест' : 'Ответить'
+                    }
                 </Button>
             </VStack>
         </VStack>

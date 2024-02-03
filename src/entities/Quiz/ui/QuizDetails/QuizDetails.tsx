@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -6,6 +6,7 @@ import { Loader } from '@/shared/ui/Loader';
 import { PageContent } from '@/shared/ui/PageContent';
 import { HStack } from '@/shared/ui/Stack';
 
+import { Answer } from '../../../Question/model/types/question';
 import { QuestionCard } from '../../../Question/ui/QuestionCard/QuestionCard';
 import { getQuizDetailsData, getQuizDetailsisLoading } from '../../model/selectors/quizDetails';
 import { fetchQuizeById } from '../../model/services/fetchQuizById';
@@ -23,21 +24,36 @@ export const QuizDetails = (props: QuizDetailsProps) => {
     const dispatch = useAppDispatch();
     const data = useSelector(getQuizDetailsData);
     const isLoading = useSelector(getQuizDetailsisLoading);
-    const questions = data?.questions || [];
+    const questions = useMemo(() => data?.questions || [], [data?.questions]);
 
-    const [currentQuestionId, setCurrentQuestionId] = useState<number>(0);
+    const [currentQuestionId, setCurrentQuestionId] = useState<string>('');
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+    const [correctAnswersCount, setCorrectAnswersCount] = useState<number>(0);
+    const [isQuizSubmit, setIsQuizSubmit] = useState<boolean>(false);
 
     useEffect(() => {
         dispatch(fetchQuizeById(id));
     }, [dispatch, id]);
-
-    const onMoveToNextAnswer = useCallback(() => {
-        if (currentQuestionId !== questions.length) {
-            setCurrentQuestionId((current) => current + 1);
+    
+    const onQuizSubmit = useCallback(() => {
+        // Здесь должна быть логина по отправлению выполненного квиза на сервер
+        setIsQuizSubmit(true);
+    }, []);
+    
+    const onMoveToNextAnswer = useCallback((selectedAnswer: Answer) => {
+        if (selectedAnswer.isCorrect) {
+            setCorrectAnswersCount(current => current + 1);
         }
-    }, [currentQuestionId, questions.length]);
 
-    if (!data) {
+        if (currentQuestionIndex === questions.length - 1) {
+            return onQuizSubmit();
+        }
+
+        setCurrentQuestionIndex((current) => current + 1);
+        setCurrentQuestionId(questions[currentQuestionIndex + 1].id);
+    }, [currentQuestionIndex, onQuizSubmit, questions]);
+
+    if (!data && !isLoading) {
         return <div>No Data!</div>;
     }
 
@@ -45,15 +61,26 @@ export const QuizDetails = (props: QuizDetailsProps) => {
         return <Loader/>;
     }
 
+    if (isQuizSubmit) {
+        return (
+            <div>Поздравляем! У вас {correctAnswersCount} правильных ответа!</div>
+        );
+    }
+
     return (
         <HStack align='start' className={cls.wrapper} gap='32' max>
             <PageContent fullWidth className={cls.content}>
                 <QuestionCard 
-                    question={questions[currentQuestionId]}
+                    question={questions[currentQuestionIndex]}
+                    isLastQuestion={currentQuestionIndex === questions.length - 1}
                     onSendAnswer={onMoveToNextAnswer}
                 />
             </PageContent>
-            <QuizNavigationBar className={cls.navigationBar}/>
+            <QuizNavigationBar
+                questions={questions} 
+                currentQuestionIndex={currentQuestionIndex}
+                className={cls.navigationBar}
+            />
         </HStack>
     );
 };

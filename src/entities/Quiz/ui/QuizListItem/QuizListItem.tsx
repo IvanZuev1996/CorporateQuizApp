@@ -20,7 +20,9 @@ export const QuizListItem = (props: QuizListItemProps) => {
     const { className, title, description, img, quizId } = props;
 
     return (
-        <PageContent className={classNames(cls.Item, {}, [className])}>
+        <PageContent
+            className={classNames(cls.Item, {}, [className])}
+        >
             <VStack gap='8' max className={cls.itemContent}>
                 <HStack className={cls.imageWrap} max>
                     <img 
@@ -35,7 +37,6 @@ export const QuizListItem = (props: QuizListItemProps) => {
                 </VStack>
                 <AppLink to={getRouteQuizDetails(quizId)} className={cls.btn}>
                     <Button 
-                        type='default' 
                         className={cls.btn}
                     >
                         Пройти опрос
